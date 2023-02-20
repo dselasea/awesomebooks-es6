@@ -12,10 +12,10 @@ const addlink = document.querySelector('.add-link');
 const contactlink = document.querySelector('.contact-link');
 const date = new Date().toLocaleString();
 
-const dateTimeNow = DateTime.now();
 
-const time = setInterval(() => {
-  return dateTimeNow.toLocaleString(DateTime.DATETIME_MED);
+setInterval(() => {
+  const dateTimeNow = DateTime.now();
+  document.querySelector('.date').innerHTML = dateTimeNow.toLocaleString(DateTime.DATETIME_MED);
 }, 1000)
 
 console.log(time())
@@ -47,5 +47,3 @@ contactlink.addEventListener('click', () => {
   contactlink.style.color = 'blue';
   addlink.style.color = 'black';
 });
-
-document.querySelector('.date').innerHTML = time;
