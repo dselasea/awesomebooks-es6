@@ -29,27 +29,6 @@ const removeSuccess = () => {
   setTimeout(() => document.querySelector('.remove-book').remove(), 3000);
 };
 
-// Display teh list of books on the web page
-const DisplayBooks = (index) => {
-  let bgcolor = '';
-  if (savebook.BookData.indexOf(index) % 2 !== 0) {
-    bgcolor = 'white';
-  } else {
-    bgcolor = 'light';
-  }
-  const displaybook = document.createElement('div');
-  displaybook.classList.add('book-item');
-  displaybook.classList.add(bgcolor);
-  displaybook.setAttribute('id', index.bookid);
-  displaybook.innerHTML = `<p class='book-title'>${index.title} by ${index.author}</p> `;
-  const removeBook = document.createElement('button');
-  removeBook.classList.add('btn');
-  removeBook.innerHTML = 'Remove';
-  removeBook.addEventListener('click', () => savebook.removeBook(index.bookid));
-  displaybook.appendChild(removeBook);
-  listOfbooks.appendChild(displaybook);
-};
-
 class StoreBook {
   constructor() {
     // Array of objects for the book items
@@ -57,6 +36,7 @@ class StoreBook {
   }
   // Add new Book to the book list
 
+  /* eslint-disable no-use-before-define */
   addBook(newbook) {
     this.BookData.push(newbook);
     localStorage.setItem('BookDB', JSON.stringify(this.BookData));
@@ -77,6 +57,26 @@ class StoreBook {
 }
 
 const savebook = new StoreBook();
+// Display teh list of books on the web page
+const DisplayBooks = (index) => {
+  let bgcolor = '';
+  if (savebook.BookData.indexOf(index) % 2 !== 0) {
+    bgcolor = 'white';
+  } else {
+    bgcolor = 'light';
+  }
+  const displaybook = document.createElement('div');
+  displaybook.classList.add('book-item');
+  displaybook.classList.add(bgcolor);
+  displaybook.setAttribute('id', index.bookid);
+  displaybook.innerHTML = `<p class='book-title'>${index.title} by ${index.author}</p> `;
+  const removeBook = document.createElement('button');
+  removeBook.classList.add('btn');
+  removeBook.innerHTML = 'Remove';
+  removeBook.addEventListener('click', () => savebook.removeBook(index.bookid));
+  displaybook.appendChild(removeBook);
+  listOfbooks.appendChild(displaybook);
+};
 
 // Get input value
 const getformInput = () => {
