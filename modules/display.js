@@ -1,3 +1,5 @@
+import Book from './book.js';
+
 const listOfbooks = document.querySelector('.books-content');
 const newB = document.querySelector('.new-books');
 const title = document.querySelector('#title');
@@ -107,8 +109,3 @@ window.addEventListener('DOMContentLoaded', () => {
   }
   savebook.BookData.forEach((item) => DisplayBooks(item));
 });
-
-setInterval(() => {
-  const dateTimeNow = DateTime.now();
-  document.querySelector('.date').innerHTML = dateTimeNow.toLocaleString(DateTime.DATETIME_MED);
-}, 1000);
