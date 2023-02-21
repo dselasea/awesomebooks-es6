@@ -39,8 +39,6 @@ const removeSuccess = () => {
   setTimeout(() => document.querySelector('.remove-book').remove(), 3000);
 };
 
-const savebook = new StoreBook();
-
 // Display teh list of books on the web page
 const DisplayBooks = (index) => {
   let bgcolor = '';
@@ -87,6 +85,8 @@ class StoreBook {
     }
   }
 }
+
+const savebook = new StoreBook();
 
 // Get input value
 const getformInput = () => {
