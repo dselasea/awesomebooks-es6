@@ -121,6 +121,13 @@ body {
   margin-right: 210px;
 }
 
+.date-now {
+  font-size: 14px;
+  font-weight: 700;
+  margin-right: 210px;
+  float: right;
+}
+
 .addnewbook {
   display: none;
 }

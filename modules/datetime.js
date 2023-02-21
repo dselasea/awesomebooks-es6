@@ -1,6 +1,10 @@
+import { DateTime } from "./luxon.js";
+
+const date = document.querySelector('.date-now');
+
 const time = () => {
   const dateTimeNow = DateTime.now();
-  document.querySelector('.date').innerHTML = dateTimeNow.toLocaleString(DateTime.DATETIME_MED);
+  date.textContent = dateTimeNow.toLocaleString(DateTime.DATETIME_MED);
 }
 
 setInterval(time, 1000);
